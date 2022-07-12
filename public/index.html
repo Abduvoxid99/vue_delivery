@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="icon" href="<%= BASE_URL %>logo.png">
+    <link rel=”manifest” href=”manifest.json”>
+    <title>System Delever</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      ::-webkit-scrollbar{
+        width:5px;
+        height:5px;
+      }
+      ::-webkit-scrollbar-track{
+        background: #f6f6f6;
+        border-radius:2px;
+      }
+      ::-webkit-scrollbar-thumb{
+        background: #cdcdcd;
+        border-radius:2px;
+      }
+      ::-webkit-scrollbar-thumb:hover{
+        background: #0ea2e7;
+      }
+      ::-webkit-scrollbar-corner {
+        background: #0ea2e7;
+      }
+      .first-loading-wrp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #0ea2e7;
+        height: 100%
+      }
+
+      .first-loading-wrp h1 {
+        font-family: "Allerta Stencil";
+        color: #ffffff;
+        font-size: 48px;
+        margin-bottom: 150px;
+      }
+      /*.fancy-spinner {*/
+      /*  display: -webkit-box;*/
+      /*  display: flex;*/
+      /*  -webkit-box-pack: center;*/
+      /*  justify-content: center;*/
+      /*  -webkit-box-align: center;*/
+      /*  align-items: center;*/
+      /*  width: 10rem;*/
+      /*  height: 10rem;*/
+      /*  margin-bottom: 100px;*/
+      /*}*/
+      /*.fancy-spinner div {*/
+      /*  position: absolute;*/
+      /*  width: 6rem;*/
+      /*  height: 6rem;*/
+      /*  border-radius: 50%;*/
+      /*}*/
+      /*.fancy-spinner div.ring {*/
+      /*  border-width: 0.5rem;*/
+      /*  border-style: solid;*/
+      /*  border-color: transparent;*/
+      /*  -webkit-animation: 2s fancy infinite alternate;*/
+      /*  animation: 2s fancy infinite alternate;*/
+      /*}*/
+      /*.fancy-spinner div.ring:nth-child(1) {*/
+      /*  border-left-color: #ffffff;*/
+      /*  border-right-color: #ffffff;*/
+      /*}*/
+      /*.fancy-spinner div.ring:nth-child(2) {*/
+      /*  border-top-color: #ffffff;*/
+      /*  border-bottom-color: #ffffff;*/
+      /*  -webkit-animation-delay: 1s;*/
+      /*  animation-delay: 1s;*/
+      /*}*/
+      /*.fancy-spinner div.dot {*/
+      /*  width: 1rem;*/
+      /*  height: 1rem;*/
+      /*  background: #ffffff;*/
+      /*}*/
+      /*.multi-ripple {*/
+      /*  width: 5.6rem;*/
+      /*  height: 5.6rem;*/
+      /*  margin: 2rem;*/
+      /*  margin-bottom: 20px;*/
+      /*}*/
+
+      /*.multi-ripple div {*/
+      /*  position: absolute;*/
+      /*  width: 4rem;*/
+      /*  height: 4rem;*/
+      /*  border-radius: 50%;*/
+      /*  border: 0.5rem solid #ffffff;*/
+      /*  animation: 1.5s ripple infinite;*/
+      /*}*/
+
+      /*.multi-ripple div:nth-child(2) {*/
+      /*  animation-delay: 0.5s;*/
+      /*}*/
+      /*@keyframes ripple {*/
+      /*  from {*/
+      /*    transform: scale(0);*/
+      /*    opacity: 1;*/
+      /*  }*/
+
+      /*  to {*/
+      /*    transform: scale(1);*/
+      /*    opacity: 0;*/
+      /*  }*/
+      /*}*/
+      .loader {
+        color: #ffffff;
+        font-size: 90px;
+        text-indent: -9999em;
+        overflow: hidden;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        margin: 72px auto;
+        position: relative;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+        animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+      }
+      @-webkit-keyframes load6 {
+        0% {
+          box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+        }
+        5%,
+        95% {
+          box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+        }
+        10%,
+        59% {
+          box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+        }
+        20% {
+          box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+        }
+        38% {
+          box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+        }
+        100% {
+          box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+        }
+      }
+      @keyframes load6 {
+        0% {
+          box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+        }
+        5%,
+        95% {
+          box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+        }
+        10%,
+        59% {
+          box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+        }
+        20% {
+          box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+        }
+        38% {
+          box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+        }
+        100% {
+          box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+        }
+      }
+      @-webkit-keyframes round {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes round {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .footertitle {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        color: #ffffff;
+        position: absolute;
+        bottom: 5%;
+      }
+    </style>
+    <!-- require cdn assets css -->
+    <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" />
+    <% } %>
+  </head>
+
+  <body>
+<!--    <script src="https://enterprise.api-maps.yandex.ru/2.1.77/?apikey=679a08be-aa49-4a79-ad31-80c65dda374a&lang=ru_RU&csp=true" type="text/javascript"></script>-->
+  <noscript>
+    <strong>We're sorry but vue-antd-pro doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app">
+    <div class="first-loading-wrp">
+      <h1>DeleverApp</h1>
+      <div class="loader">Loading...</div>
+<!--      <div class="multi-ripple">-->
+<!--        <div></div>-->
+<!--        <div></div>-->
+<!--      </div>-->
+      <div class="footertitle">Copyright © 2022 UDevs</div>
+    </div>
+  </div>
+  <!-- require cdn assets js -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+  <script type="text/javascript" src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+  <% } %>
+  <!-- built files will be auto injected -->
+  <script src="https://unpkg.com/viser-vue/umd/viser-vue.min.js"></script>
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<!--  <script src="https://api-maps.yandex.ru/2.1-dev/?apikey=679a08be-aa49-4a79-ad31-80c65dda374a&lang=ru_RU" type="text/javascript"/>-->
+  </body>
+</html>
